@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title id="page_title">Inventory</title>
+
+    <meta charset="utf-8" name="viewport" content = "width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="/static/index.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Inventory</a>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="container">
+        <br>
+
+        <h2>Inventory</h2>
+        
+        <input type="text" class="form-control" id="Search"><br>
+
+        <div class="float-md-right">
+            <button type="button" id="new" class="btn btn-dark" data-toggle="modal" data-target="#popup">Add New</button>
+        </div>
+
+        <br><br>
+
+        <table id="items_table" class="table">
+            <tr><td>ID</td><td>Name</td></tr>
+        </table>
+
+
+    </div>
+</body>
+
+
+<div id="popup" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">Item</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form id="itemForm">
+
+                    <div class="form-group">
+                        <label class="control-label" for="id">ID</label>
+                        <input type="text" class="form-control" id="id" name="id" disabled="true">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="store">Storage Location</label>
+                        <input type="text" class="form-control" id="store" name="store">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="location">Current Location</label>
+                        <input type="text" class="form-control" id="location" name="location">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="other">Other Info</label>
+                        <input type="text" class="form-control" id="other" name="other">
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" value="update" id="update">Update</button>
+                <button type="button" class="btn btn-danger" value="delete" id="delete">Delete</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</html>
+
