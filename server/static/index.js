@@ -69,8 +69,8 @@ function fillList(query){
             clearList();
 
             $.each(data.data, function(index, item){
-                $('<tr id="item">').html("<td>" + item.id + "</td><td>" + 
-                    item.name + "</td>").appendTo('#items_table');
+                $('<tr id="item">').html("<td class='text-center'>" + item.id + "</td><td class='text-center'>" + 
+                    item.name + "</td><td class='text-center'>" + item.loc + "</td>").appendTo('#items_table');
             })
         }
     });

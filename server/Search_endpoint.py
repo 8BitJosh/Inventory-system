@@ -23,7 +23,7 @@ class Search(Resource):
 
         query = c.execute(
             '''
-            SELECT id, name FROM items
+            SELECT id, name, store, location FROM items
             ''')
 
         if search not in '':
@@ -39,8 +39,21 @@ class Search(Resource):
             for result in results:
                 ids.append(result[2])
 
-            q = 'SELECT id, name FROM items WHERE id in (' + ",".join(['?']*len(results)) + ')'
+            q = 'SELECT id, name, store, location FROM items WHERE id in (' + ",".join(['?']*len(results)) + ')'
             query = c.execute(q, ids)
 
+        data = []
 
-        return {'data': [dict(zip(keys, i)) for i in query.fetchall()]}, 200
+        for item in query.fetchall():
+            x = {}
+            x['id'] = item[0]
+            x['name'] = item[1]
+
+            if item[3] not in '':
+                x['loc'] = item[3]
+            else:
+                x['loc'] = item[2]  
+
+            data.append(x)
+
+        return {'data': data}, 200
